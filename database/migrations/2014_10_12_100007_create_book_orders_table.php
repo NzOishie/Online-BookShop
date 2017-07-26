@@ -20,6 +20,14 @@ class CreateBookOrdersTable extends Migration
             $table->unsignedInteger('amount');
             $table->unique(['book_id', 'order_id']);
             $table->timestamps();
+            $table->foreign('book_id')
+                ->references('id')->on('books')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
+            $table->foreign('order_id')
+                ->references('id')->on('orders')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
 
         });
     }
@@ -31,6 +39,6 @@ class CreateBookOrdersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('bookorders');
     }
 }

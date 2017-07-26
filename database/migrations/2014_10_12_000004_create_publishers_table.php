@@ -14,7 +14,7 @@ class CreatePublishersTable extends Migration
     public function up()
     {
         Schema::create('publishers', function (Blueprint $table) {
-        
+
             $table->increments('id');
             $table->string('firstname');
             $table->string('lastname');
@@ -31,6 +31,6 @@ class CreatePublishersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('publishers');
     }
 }

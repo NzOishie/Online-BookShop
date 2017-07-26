@@ -18,9 +18,17 @@ class CreateReviewsTable extends Migration
             $table->unsignedInteger('book_id');
             $table->unsignedInteger('user_id');
             $table->unsignedInteger('rating');
-            $table->string('dtails');
+            $table->string('details');
             $table->unique(['book_id', 'user_id']);
             $table->timestamps();
+            $table->foreign('user_id')
+                ->references('id')->on('users')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
+            $table->foreign('book_id')
+                ->references('id')->on('books')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
 
         });
     }
@@ -32,6 +40,6 @@ class CreateReviewsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('reviews');
     }
 }

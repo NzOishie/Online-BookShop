@@ -14,13 +14,14 @@ class CreateAdminsTable extends Migration
     public function up()
     {
         Schema::create('admins', function (Blueprint $table) {
-            
-            $table->unsignedInteger('admin_id');
+            $table->unsignedInteger('id');
             $table->timestamps();
-            $table->foreign('admin_id')
+            $table->foreign('id')
                 ->references('id')->on('users')
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
+
+            $table->unique('id');
         });
     }
 
@@ -31,6 +32,6 @@ class CreateAdminsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('admins');
     }
 }
