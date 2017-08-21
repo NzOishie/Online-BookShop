@@ -75,11 +75,22 @@
             </div>
             </div>
         </nav>
-        <div class="col-md-3">
+        <div class="container">
+        <div class=" col-md-3 ">
+            <div class="list-group  >
+                @php
+                    $catagories=App\Catagory::All();
+                @endphp
+                @foreach ($catagories as $catagory)
+                 <a href="#" class="list-group-item">{{$catagory->catagory}}</a>
+                @endforeach
+            </div>
 
         </div>
 
-        @yield('content')
+
+           @yield('content')
+         
     </div>
 
     <!-- Scripts -->

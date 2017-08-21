@@ -18,3 +18,12 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/list', function () {
+    return view('list');
+});
+Route::get('/book', function () {
+    return view('book');
+});
+Route::get('/authors', function () {
+    return view('Authors');
+});
