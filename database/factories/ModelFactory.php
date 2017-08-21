@@ -59,6 +59,14 @@ $factory->define(App\BookOrders::class, function (Faker\Generator $faker) {
 
     ];
 });
+$factory->define(App\Catagory::class, function (Faker\Generator $faker) {
+        $books = App\Book::all();
+    return [
+        'book_id' => $books->random()->id,
+        'catagory' => $faker->word,
+    ];
+});
+
 $factory->define(App\Book::class, function (Faker\Generator $faker) {
     $authors = App\Author::all();
     $publishers = App\Publisher::all();
