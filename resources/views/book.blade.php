@@ -5,10 +5,10 @@
 
 
             @php
-                $book=App\Book::find(1);
+                $book=App\Book::find($id);
             @endphp
 
-                <div class="well "S>
+                <div class="well ">
                     <h1 style="color: #a00221;"><?php echo $book->name; ?></h1>
                     <br>
 

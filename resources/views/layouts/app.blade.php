@@ -18,7 +18,7 @@
         <nav class="navbar navbar-default navbar-static-top">
             <div class="container">
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="#">Online BookShop</a>
+                    <a class="navbar-brand" href="/list">Online BookShop</a>
 
                     <!-- Collapsed Hamburger -->
                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
@@ -41,7 +41,7 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="nav navbar-nav navbar-right">
                         <li class="active"><a href="#">Home</a></li>
-                        <li><a href="#">Authors</a></li>
+                        <li><a href="/authors">Authors</a></li>
                         <li><a href="#">Publishers</a></li>
                         <li><a href="#">About</a></li>
 
@@ -62,7 +62,6 @@
                                                      document.getElementById('logout-form').submit();">
                                             Logout
                                         </a>
-
                                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                             {{ csrf_field() }}
                                         </form>
@@ -77,20 +76,18 @@
         </nav>
         <div class="container">
         <div class=" col-md-3 ">
-            <div class="list-group  >
+            <div class="list-group"  >
                 @php
                     $catagories=App\Catagory::All();
                 @endphp
                 @foreach ($catagories as $catagory)
-                 <a href="#" class="list-group-item">{{$catagory->catagory}}</a>
+                 <a href="#" class="list-group-item">{{$catagory->catagory}} </a>
                 @endforeach
             </div>
 
         </div>
-
-
            @yield('content')
-         
+
     </div>
 
     <!-- Scripts -->

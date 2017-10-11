@@ -25,4 +25,9 @@ class HomeController extends Controller
     {
         return view('home');
     }
+    public function book($id)
+    {
+      $book=Book::find($id);
+      return view('book')->with('book',$book);
+    }
 }

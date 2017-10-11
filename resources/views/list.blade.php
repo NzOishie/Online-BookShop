@@ -9,7 +9,7 @@
             @endphp
             @foreach ($books as $book)
                 <div class="well col-md-4" style="height: 450px">
-                    <h3><?php echo $book->name; ?></h3>
+                    <h3> <a href="{{route('books.show',$book->id)}}"><?php echo $book->name; ?></a> </h3>
                     <h3><img src="<?php echo $book->image; ?>" width="200" height="200" alt="" /></h3>
                     <h4>Price: <?php echo $book->price; ?>tk</h4>
                     <h5>Author: <?php echo $book->author; ?></h5>
