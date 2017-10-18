@@ -28,9 +28,11 @@ Route::get('/authors', function () {
 Route::resource('books','BookController');
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('user/logout','Auth\LoginController@userlogout')->name('user.logout');
 Route::get('/book', 'HomeController@book')->name('book');
 
 
 Route::get('/admin/login','Auth\AdminLoginController@showLoginform')->name('admin.login');
 Route::post('/admin/login','Auth\AdminLoginController@login')->name('admin.login.submit');
 Route::get('/admin', 'AdminController@index')->name('admin.dashboard');
+Route::get('/logout','Auth\AdminLoginController@logout')->name('admin.logout');
